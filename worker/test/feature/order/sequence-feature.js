@@ -49,14 +49,21 @@ Feature("Sequence Feature", () => {
     // Invoke the order sequence using message which is the manifest
     // Return value is stored in last
     let last;
+    
     When("we invoke the sequence", async () => {
       const { message } = manifest;
+      //console.log(`Manifest:`);
+      //console.log(manifest);
+      console.log(`Message incoming:`);
+      console.log(message);
       last = await runSequence(
         app,
         "trigger.sequence.order",
         message
       );
     });
+
+  
 
     // Verifies the outcome of sequence order
     Then("we should get a processed message", () => {

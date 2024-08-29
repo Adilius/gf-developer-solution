@@ -12,8 +12,14 @@ const router = express.Router();
   phoneNumber: "0700112233",
 }
 */
+router.get("/", (req, res) => {
+  console.log(`GET / ${JSON.stringify(req.body)}`);
+  res.status(200).json({status: "CRM API online."});
+});
+
 
 router.post("/account", (req, res) => {
+  console.log(`POST /account ${JSON.stringify(req.body)}`);
   const { email, firstName, lastName, phoneNumber } = req.body;
 
   const existingAccount = db.accounts.find((account) => account.email === email);

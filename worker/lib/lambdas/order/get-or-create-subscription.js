@@ -7,6 +7,7 @@ export default async function getOrCreateSubscription(message, context) {
   // YOUR CODE HERE
 
   // WE RETURN THE SUBSCRIPTION HERE FOR TRACEABILITY
-
+  
+  const id = "abcd";
   return { type: "subscription", id };
 }

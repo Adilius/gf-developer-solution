@@ -10,7 +10,13 @@ const router = express.Router();
 }
 */
 
+router.get("/", (req, res) => {
+  console.log(`GET / ${JSON.stringify(req.body)}`);
+  res.status(200).json({status: "Subscription API online."});
+});
+
 router.get("/subscription", (req, res) => {
+  console.log(`GET /subscription ${JSON.stringify(req.body)}`);
   // Logging
   console.log(`GET /subscription - Fetching subscriptions for order ID: ${orderId}`);
   const { "order-id": orderId } = req.query;
@@ -33,6 +39,7 @@ router.get("/subscription", (req, res) => {
 */
 
 router.post("/subscription", (req, res) => {
+  console.log(`POST /subscription ${JSON.stringify(req.body)}`);
   const { accountId, orderId, productCode, payment: { method, token } } = req.body;
 
   const sameProductSubscription = db.subscriptions.find((sub) => sub.accountId === accountId && sub.productCode === productCode);
