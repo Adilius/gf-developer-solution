@@ -54,8 +54,8 @@ Feature("Sequence Feature", () => {
       const { message } = manifest;
       //console.log(`Manifest:`);
       //console.log(manifest);
-      console.log(`Message incoming:`);
-      console.log(message);
+      //console.log(`Message incoming:`);
+      //console.log(message);
       last = await runSequence(
         app,
         "trigger.sequence.order",
