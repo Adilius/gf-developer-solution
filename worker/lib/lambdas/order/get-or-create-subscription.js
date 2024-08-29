@@ -5,7 +5,6 @@ export default async function getOrCreateSubscription(message, context) {
   const accountId = findOrReject(message.data, "account", "id");
 
   // YOUR CODE HERE
-  //console.log(`Message:`);
   //console.log(message);
 
   const subscriptionResponse = await http.asserted.post({
@@ -13,15 +12,14 @@ export default async function getOrCreateSubscription(message, context) {
     body: {
       accountId: accountId,
       orderID: message.orderID,
-      productCode: message.productCode,
-      payment: {
-        method: message.payment.method,
-        token: message.payment.token
-      }
+      productCode: productCode,
+      payment: payment
     }
   });
-  //console.log(subscriptionResponse);
 
+
+  rejectUnless(subscriptionResponse?.id?.length, `There's already a subscription with id: ${subscriptionResponse?.id}`);
+  console.log(`Created a subscription ${subscriptionResponse.id} for account ${accountId}`);
 
   // WE RETURN THE SUBSCRIPTION HERE FOR TRACEABILITY
   return { type: "subscription", id: subscriptionResponse.id };

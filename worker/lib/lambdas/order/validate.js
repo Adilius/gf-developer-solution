@@ -10,8 +10,9 @@ export default async function validate(message, context) {
     qs: { "order-id": order.id }
   });
 
-  //console.log(`validate.js /subscription call - Return data: ${JSON.stringify(orderSubscriptions)}`);
   rejectIf(orderSubscriptions?.data?.length, `There's already an existing subscription for order with id: ${order.id}`);
+  console.log(`No exisiting subscription for order with id: ${order.id}`);
+
   
   return;
 }

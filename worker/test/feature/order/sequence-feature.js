@@ -32,7 +32,7 @@ Feature("Sequence Feature", () => {
     // Intercept GET and POST request to /subscription
     // GET: Query sent is order-id from the predefined manifest.message.is
     // And returns empty data array
-    // POST: Store POST boy in subscriptionBody
+    // POST: Store POST body in subscriptionBody
     // Respond with predefined manifest.subscription.body
     let subscriptionBody;
     And("we can talk to subscription-api", () => {
@@ -49,21 +49,14 @@ Feature("Sequence Feature", () => {
     // Invoke the order sequence using message which is the manifest
     // Return value is stored in last
     let last;
-    
     When("we invoke the sequence", async () => {
-      const { message } = manifest;
-      //console.log(`Manifest:`);
-      //console.log(manifest);
-      //console.log(`Message incoming:`);
-      //console.log(message);
+      const { message } = manifest;;
       last = await runSequence(
         app,
         "trigger.sequence.order",
         message
       );
     });
-
-  
 
     // Verifies the outcome of sequence order
     Then("we should get a processed message", () => {

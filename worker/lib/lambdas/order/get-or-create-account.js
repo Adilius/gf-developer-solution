@@ -5,7 +5,6 @@ export default async function getOrCreateAccount(message, context) {
   const order = message;
 
   // YOUR CODE HERE
-  //console.log(`http: ${JSON.stringify(http)}`);
   //console.log(`order: ${JSON.stringify(order)}`);
 
 const accountID = await http.asserted.post({
@@ -18,10 +17,8 @@ const accountID = await http.asserted.post({
   }
 });
   
-//console.log(`accountID: ${JSON.stringify(accountID)}`);
-  
-//rejectUnless(accountID?.id?.length, `There's already an existing account with id: ${accountID?.id}`);
-//console.log(`Created an account with account ID: ${accountID?.id}`);
+rejectUnless(accountID?.id?.length, `There's already an existing account with id: ${accountID?.id}`);
+console.log(`Created an account with id: ${accountID.id}`);
 
   // THE NEXT LAMBDA WILL REQUIRE AN ACCOUNT AND IT'S ID THEREFOR WE RETURN IT.
   return { type: "account", id: accountID.id };

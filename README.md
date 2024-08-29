@@ -2,14 +2,11 @@
 
 This is my solution to the [gf-developer-assessment](https://github.com/BonnierNews/gf-developer-assessment) where the background, task, and more information can be found.
 
-## Install
+## Install & Run
 
-## Solution
-
-1. Within `/worker` directory create Docker image using `docker build -t worker-app .`
-2. Run worker app using `docker run worker-app`
-3. Within `subscription-api` directory create Docker image using `docker build -t subscription-api .`
-4. Run subscription api using `docker run -p 3000:3000 subscription-api`
+1. Start Docker
+2. Within `/worker` directory create Docker image using `docker build -t worker-app .`
+3. Run worker app using `docker run worker-app`
 
 
 ## The task
