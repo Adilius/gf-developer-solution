@@ -19,7 +19,7 @@ export default async function getOrCreateSubscription(message, context) {
 
 
   rejectUnless(subscriptionResponse?.id?.length, `There's already a subscription with id: ${subscriptionResponse?.id}`);
-  console.log(`Created a subscription ${subscriptionResponse.id} for account ${accountId}`);
+  //console.log(`Created a subscription ${subscriptionResponse.id} for account ${accountId}`);
 
   // WE RETURN THE SUBSCRIPTION HERE FOR TRACEABILITY
   return { type: "subscription", id: subscriptionResponse.id };

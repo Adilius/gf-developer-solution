@@ -11,7 +11,7 @@ export default async function validate(message, context) {
   });
 
   rejectIf(orderSubscriptions?.data?.length, `There's already an existing subscription for order with id: ${order.id}`);
-  console.log(`No exisiting subscription for order with id: ${order.id}`);
+  //console.log(`No exisiting subscription for order with id: ${order.id}`);
 
   
   return;

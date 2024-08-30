@@ -18,7 +18,7 @@ const accountID = await http.asserted.post({
 });
   
 rejectUnless(accountID?.id?.length, `There's already an existing account with id: ${accountID?.id}`);
-console.log(`Created an account with id: ${accountID.id}`);
+//console.log(`Created an account with id: ${accountID.id}`);
 
   // THE NEXT LAMBDA WILL REQUIRE AN ACCOUNT AND IT'S ID THEREFOR WE RETURN IT.
   return { type: "account", id: accountID.id };
